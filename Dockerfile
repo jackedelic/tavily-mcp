@@ -10,21 +10,14 @@ USER service-user
 
 WORKDIR /app
 
-<<<<<<< HEAD
+
 ENV TAVILY_API_KEY=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
 
+# RUN npm ci --ignore-scripts --omit-dev
 RUN git clone https://github.com/jackedelic/tavily-mcp . && git checkout e02c311d8b9d59b93f498a04fdb9f42921a91de8
 
 RUN npm install
 
 # RUN npm ci --ignore-scripts --omit-dev
 
-=======
-RUN git clone https://github.com/jackedelic/tavily-mcp . && git checkout e02c311d8b9d59b93f498a04fdb9f42921a91de8
-
-RUN npm install
-
-# RUN npm ci --ignore-scripts --omit-dev
-
->>>>>>> 2db029a (test: add api key)
 CMD ["mcp-proxy","node","build/index.js"]
