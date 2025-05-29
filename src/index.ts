@@ -11,8 +11,10 @@ import { hideBin } from 'yargs/helpers';
 
 dotenv.config();
 
-const API_KEY = process.env.TAVILY_API_KEY;
+var API_KEY = process.env.TAVILY_API_KEY;
 if (!API_KEY) {
+  console.warn("TAVILY_API_KEY environment variable not found, fallback to default value");
+  API_KEY = "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"
   throw new Error("TAVILY_API_KEY environment variable is required");
 }
 
